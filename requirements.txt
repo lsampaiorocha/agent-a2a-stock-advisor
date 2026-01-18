@@ -1,0 +1,13 @@
+boto3==1.40.50
+bedrock-agentcore-starter-toolkit
+bedrock-agentcore==0.1.7
+strands-agents[a2a]
+strands-agents-tools
+pyyaml
+ddgs
+fastapi
+uvicorn
+httpx
+a2a
+a2a-sdk
+mcp>=0.5.0

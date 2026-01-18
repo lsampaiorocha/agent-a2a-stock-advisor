@@ -1,0 +1,24 @@
+# .bedrock_agentcore.yaml
+
+agent_name: agent-mcp-stocks
+
+entrypoint: src/agent.py
+
+handler: stocks_agent
+
+runtime: python
+
+region: us-east-2
+
+protocol: A2A
+
+requirements_file: requirements.txt
+
+iam:
+  auto_create_execution_role: true
+
+ecr:
+  auto_create: true
+
+authorization:
+  type: iam
