@@ -14,10 +14,25 @@ from strands import Agent
 from strands.multiagent.a2a import A2AServer
 from strands.tools.mcp import MCPClient
 
+
 # ---------------------------------------------------------------------
 # Load .env BEFORE reading environment variables
 # ---------------------------------------------------------------------
 load_dotenv()
+
+# =============================================================================
+# Load Alpha Vantage config (ENV + defaults only)
+# =============================================================================
+
+ALPHAVANTAGE_API_KEY = os.getenv("ALPHAVANTAGE_API_KEY", "").strip()
+
+if not ALPHAVANTAGE_API_KEY:
+    raise RuntimeError(
+        "Missing ALPHAVANTAGE_API_KEY. "
+        "Put it in your .env file or environment variables."
+    )
+
+ALPHAVANTAGE_MCP_URL = f"https://mcp.alphavantage.co/mcp?apikey={ALPHAVANTAGE_API_KEY}"
 
 # ---------------------------------------------------------------------
 # Logging

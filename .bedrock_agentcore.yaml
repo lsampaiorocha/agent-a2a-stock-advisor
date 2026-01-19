@@ -1,24 +1,41 @@
-# .bedrock_agentcore.yaml
-
-agent_name: agent-mcp-stocks
-
-entrypoint: src/agent.py
-
-handler: stocks_agent
-
-runtime: python
-
-region: us-east-2
-
-protocol: A2A
-
-requirements_file: requirements.txt
-
-iam:
-  auto_create_execution_role: true
-
-ecr:
-  auto_create: true
-
-authorization:
-  type: iam
+default_agent: agent_mcp_stocks
+agents:
+  agent_mcp_stocks:
+    name: agent_mcp_stocks
+    entrypoint: C:/Users/leona/Portfolio/agent-mcp-stocks/src/agent.py
+    platform: linux/arm64
+    container_runtime: none
+    source_path: C:\Users\leona\Portfolio\agent-mcp-stocks\src
+    aws:
+      execution_role: arn:aws:iam::223382717293:role/AmazonBedrockAgentCoreSDKRuntime-us-east-2-fcb23ffb9e
+      execution_role_auto_create: false
+      account: '223382717293'
+      region: us-east-2
+      ecr_repository: 223382717293.dkr.ecr.us-east-2.amazonaws.com/bedrock-agentcore-agent_mcp_stocks
+      ecr_auto_create: false
+      network_configuration:
+        network_mode: PUBLIC
+        network_mode_config: null
+      protocol_configuration:
+        server_protocol: HTTP
+      observability:
+        enabled: true
+    bedrock_agentcore:
+      agent_id: agent_mcp_stocks-uVRjqO2SDB
+      agent_arn: arn:aws:bedrock-agentcore:us-east-2:223382717293:runtime/agent_mcp_stocks-uVRjqO2SDB
+      agent_session_id: a8d7d53f-85bf-4e08-af59-097611519a41
+    codebuild:
+      project_name: bedrock-agentcore-agent_mcp_stocks-builder
+      execution_role: arn:aws:iam::223382717293:role/AmazonBedrockAgentCoreSDKCodeBuild-us-east-2-fcb23ffb9e
+      source_bucket: bedrock-agentcore-codebuild-sources-223382717293-us-east-2
+    memory:
+      mode: STM_ONLY
+      memory_id: agent_mcp_stocks_mem-QULuFLDzp5
+      memory_arn: arn:aws:bedrock-agentcore:us-east-2:223382717293:memory/agent_mcp_stocks_mem-QULuFLDzp5
+      memory_name: agent_mcp_stocks_mem
+      event_expiry_days: 30
+      first_invoke_memory_check_done: true
+      was_created_by_toolkit: true
+    authorizer_configuration: null
+    request_header_configuration: null
+    oauth_configuration: null
