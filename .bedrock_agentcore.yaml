@@ -23,7 +23,7 @@ agents:
     bedrock_agentcore:
       agent_id: agent_mcp_stocks-uVRjqO2SDB
       agent_arn: arn:aws:bedrock-agentcore:us-east-2:223382717293:runtime/agent_mcp_stocks-uVRjqO2SDB
-      agent_session_id: a8d7d53f-85bf-4e08-af59-097611519a41
+      agent_session_id: null
     codebuild:
       project_name: bedrock-agentcore-agent_mcp_stocks-builder
       execution_role: arn:aws:iam::223382717293:role/AmazonBedrockAgentCoreSDKCodeBuild-us-east-2-fcb23ffb9e
