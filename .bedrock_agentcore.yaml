@@ -17,7 +17,7 @@ agents:
         network_mode: PUBLIC
         network_mode_config: null
       protocol_configuration:
-        server_protocol: HTTP
+        server_protocol: A2A
       observability:
         enabled: true
     bedrock_agentcore:
